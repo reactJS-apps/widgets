@@ -4,8 +4,18 @@ import axios from 'axios';
 export default function Search() {
   const [term, setTerm] = useState('web development');
   const [results, setResults] = useState([]);
+  const [debouncedTerm, setDebouncedTerm] = useState(term);
 
   const baseURL = 'https://en.wikipedia.org/w/api.php';
+
+  useEffect(() => {
+    const timerId = setTimeout(() => {
+      setDebouncedTerm(term);
+    }, 1000);
+    return () => {
+      clearTimeout(timerId);
+    };
+  }, [term]);
 
   useEffect(() => {
     const search = async () => {
@@ -15,21 +25,15 @@ export default function Search() {
           list: 'search',
           origin: '*',
           format: 'json',
-          srsearch: term,
+          srsearch: debouncedTerm,
         },
       });
 
       setResults(data.query.search);
     };
 
-    const timeoutId = setTimeout(() => {
-      if (term) search();
-    }, 500);
-
-    return () => {
-      clearTimeout(timeoutId);
-    };
-  }, [term]);
+    if (debouncedTerm) search();
+  }, [debouncedTerm]);
 
   const renderedList = results.map((result) => {
     return (
