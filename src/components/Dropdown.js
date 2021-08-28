@@ -2,12 +2,16 @@ import React from 'react';
 
 export default function Dropdown({ options, selected, onSelect }) {
   const renderedOptions = options.map((option, index) => {
+    if (option.value === selected.value) {
+      return null;
+    }
     return (
       <div key={index} className="item" onClick={() => onSelect(option)}>
         {option.label}
       </div>
     );
   });
+
   return (
     <div className="ui form">
       <div className="field">
