@@ -20,6 +20,7 @@ export default function App() {
 
   return (
     <div className="ui container" style={{ marginTop: '5%' }}>
+      <Accordion items={items} />
       <Search />
     </div>
   );
