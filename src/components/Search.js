@@ -5,8 +5,6 @@ export default function Search() {
   const [term, setTerm] = useState('web development');
   const [results, setResults] = useState([]);
 
-  console.log(results);
-
   const baseURL = 'https://en.wikipedia.org/w/api.php';
 
   useEffect(() => {
@@ -26,6 +24,17 @@ export default function Search() {
     if (term) search();
   }, [term]);
 
+  const renderedList = results.map((result) => {
+    return (
+      <div className="item" key={result.pageid}>
+        <div className="content">
+          <div className="header">{result.title}</div>
+          {result.snippet}
+        </div>
+      </div>
+    );
+  });
+
   return (
     <div>
       <div className="ui form">
@@ -38,6 +47,7 @@ export default function Search() {
           />
         </div>
       </div>
+      <div className="ui celled list">{renderedList}</div>
     </div>
   );
 }
