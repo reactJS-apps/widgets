@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-export default function Dropdown({ options }) {
+export default function Dropdown({ options, selected, onSelect }) {
   const renderedOptions = options.map((option, index) => {
     return (
-      <div key={index} className="item">
+      <div key={index} className="item" onClick={() => onSelect(option)}>
         {option.label}
       </div>
     );
@@ -14,7 +14,7 @@ export default function Dropdown({ options }) {
         <label className="label">Select a Color</label>
         <div className="ui selection dropdown visible active">
           <i className="dropdown icon"></i>
-          <div className="text">Select Color</div>
+          <div className="text">{selected.label}</div>
           <div className="menu visible transition">{renderedOptions}</div>
         </div>
       </div>
