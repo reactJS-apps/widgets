@@ -1,5 +1,6 @@
 import React from 'react';
 import Accordion from './components/Accordion';
+import Search from './components/Search';
 
 export default function App() {
   const items = [
@@ -19,7 +20,7 @@ export default function App() {
 
   return (
     <div className="ui container" style={{ marginTop: '5%' }}>
-      <Accordion items={items} />
+      <Search />
     </div>
   );
 }

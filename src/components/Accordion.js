@@ -24,10 +24,5 @@ export default function Accordion({ items }) {
       </React.Fragment>
     );
   });
-  return (
-    <div className="ui styled accordion">
-      {renderedItems}
-      <h1>{activeIndex}</h1>
-    </div>
-  );
+  return <div className="ui styled accordion">{renderedItems}</div>;
 }
