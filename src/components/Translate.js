@@ -3,6 +3,11 @@ import Convert from './Convert';
 import Dropdown from './Dropdown';
 
 const languageOptions = [
+  { label: 'Russian', value: 'ru' },
+  { label: 'English', value: 'en' },
+  { label: 'Uzbek', value: 'uz' },
+  { label: 'Turkish', value: 'tr' },
+  { label: 'Spanish', value: 'es' },
   { label: 'Afrikaans', value: 'af' },
   { label: 'Arabic', value: 'ar' },
   { label: 'Hindi', value: 'hi' },
