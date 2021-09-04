@@ -27,22 +27,23 @@ const colorOptions = [
 
 export default function App() {
   const [selected, setSelected] = useState(colorOptions[0]);
-  const [showDropdown, setShowDropdown] = useState(true);
+  // const [showDropdown, setShowDropdown] = useState(true);
 
   return (
     <div className="ui container">
-      <button onClick={() => setShowDropdown(!showDropdown)}>
+      {/*<button onClick={() => setShowDropdown(!showDropdown)}>
         Toggle Dropdown
-      </button>
+  </button>*/}
 
-      {showDropdown ? (
+      {/* showDropdown ? (
         <Dropdown
           options={colorOptions}
           selected={selected}
           onSelect={setSelected}
           label="Color"
         />
-      ) : null}
+      ) : null */}
+
       <Translate />
     </div>
   );
