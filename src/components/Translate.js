@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Convert from './Convert';
 import Dropdown from './Dropdown';
 
 const languageOptions = [
@@ -28,6 +29,9 @@ export default function Translate() {
         onSelect={setLanguage}
         label="Language"
       />
+      <hr />
+      <h3 className="ui header">Output</h3>
+      <Convert text={text} language={language} />
     </div>
   );
 }
