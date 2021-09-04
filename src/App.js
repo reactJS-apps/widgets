@@ -29,22 +29,33 @@ export default function App() {
   const [selected, setSelected] = useState(colorOptions[0]);
   // const [showDropdown, setShowDropdown] = useState(true);
 
+  const showAccordion = () => {
+    if (window.location.pathname === '/') {
+      return <Accordion items={items} />;
+    }
+  };
+
+  const showSearch = () => {
+    if (window.location.pathname === '/list') {
+      return <Search />;
+    }
+  };
+
+  const showDropdown = () => {
+    if (window.location.pathname === '/dropdown') {
+      return <Dropdown />;
+    }
+  };
+
+  const showTranslate = () => {
+    if (window.location.pathname === '/translate') {
+      return <Translate />;
+    }
+  };
+
   return (
     <div className="ui container">
-      {/*<button onClick={() => setShowDropdown(!showDropdown)}>
-        Toggle Dropdown
-  </button>*/}
-
-      {/* showDropdown ? (
-        <Dropdown
-          options={colorOptions}
-          selected={selected}
-          onSelect={setSelected}
-          label="Color"
-        />
-      ) : null */}
-
-      <Translate />
+      {showAccordion()} {showSearch()} {showDropdown()} {showTranslate()}
     </div>
   );
 }
